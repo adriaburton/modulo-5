@@ -1,0 +1,72 @@
+/*creacion de variables ejercicio 2*/
+/*variables*/
+$height: 100vh;
+$overflow: hidden;
+$display: flex;
+$text-align: center;
+$justify-content: center;
+$text-align: center;
+/*creacion de mixin ejercicio 2*/
+/*mixin*/
+@mixin medidas {
+  height: $height;
+  overflow: $overflow;
+  display: $display;
+}
+@mixin texto {
+  text-align: $text-align;
+  justify-content: $justify-content;
+  text-align: $text-align;
+}
+/*aplicacion de estructuras include ejercicio 3*/
+/*stripts*/
+.strips {
+  @include medidas;
+  @include texto;
+  width: 100vw;
+  cursor: pointer;
+
+  .strip {
+    @include medidas;
+    @include texto;
+    position: relative;
+    width: 19.9vw;
+    margin: 0.1vw;
+    align-items: center;
+
+    .strip_content {
+      @include medidas;
+      @include texto;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+
+/* before */
+.strips {
+  .strip_content:before {
+    content: "";
+    @include medidas;
+    @include texto;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    background: white;
+    opacity: 0.05;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+    transform: skew(30deg) scaleY(1) translate(0, 0);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .strip_content:hover:before {
+    -webkit-transform: skew(0deg) scaleX(2) translate(0, 0);
+    transform: skew(0deg) scaleX(2) translate(0, 0);
+    opacity: 0.2;
+  }
+}
