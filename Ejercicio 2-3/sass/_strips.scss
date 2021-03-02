@@ -1,11 +1,6 @@
 /*creacion de variables ejercicio 2*/
 /*variables*/
-$height: 100vh;
-$overflow: hidden;
-$display: flex;
-$text-align: center;
-$justify-content: center;
-$text-align: center;
+@import "./_variables.scss";
 /*creacion de mixin ejercicio 2*/
 /*mixin*/
 @mixin medidas {
